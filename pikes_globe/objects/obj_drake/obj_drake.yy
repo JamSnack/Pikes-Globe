@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "drake",
+  "name": "obj_drake",
   "spriteId": null,
   "solid": false,
   "visible": true,

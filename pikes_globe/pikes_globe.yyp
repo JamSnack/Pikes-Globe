@@ -3,7 +3,7 @@
   "resourceVersion": "1.6",
   "name": "pikes_globe",
   "resources": [
-    {"id":{"name":"drake","path":"objects/drake/drake.yy",},"order":0,},
+    {"id":{"name":"obj_drake","path":"objects/obj_drake/obj_drake.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
