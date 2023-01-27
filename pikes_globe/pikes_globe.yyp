@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "pikes_globe",
   "resources": [
+    {"id":{"name":"spr_duder","path":"sprites/spr_duder/spr_duder.yy",},"order":0,},
     {"id":{"name":"obj_drakef","path":"objects/obj_drakef/obj_drakef.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
