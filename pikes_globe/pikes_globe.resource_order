@@ -138,6 +138,8 @@
     {"name":"spr_tile_selection","order":6,"path":"sprites/spr_tile_selection/spr_tile_selection.yy",},
     {"name":"spr_tiles","order":4,"path":"sprites/spr_tiles/spr_tiles.yy",},
     {"name":"spr_tileset","order":2,"path":"sprites/spr_tileset/spr_tileset.yy",},
+    {"name":"spr_ui_background_frame","order":15,"path":"sprites/spr_ui_background_frame/spr_ui_background_frame.yy",},
+    {"name":"spr_ui_background","order":14,"path":"sprites/spr_ui_background/spr_ui_background.yy",},
     {"name":"spr_ui_item_header","order":12,"path":"sprites/spr_ui_item_header/spr_ui_item_header.yy",},
     {"name":"spr_ui_item_slot","order":13,"path":"sprites/spr_ui_item_slot/spr_ui_item_slot.yy",},
   ],

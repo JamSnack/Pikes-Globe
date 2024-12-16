@@ -42,10 +42,10 @@ function init_game_state()
 		weapon_mods : array_create(5, 0),
 		equipment_mods: array_create(5, 0),
 		
-		pickaxe_mods_available: 0,
-		weapon_mods_available: 0,
-		equipment_mods_available: 0,
-		inventory_slots_available: 0,
+		pickaxe_mods_available: 1,
+		weapon_mods_available: 3,
+		equipment_mods_available: 5,
+		inventory_slots_available: 10,
 	}
 }
 

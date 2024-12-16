@@ -4,3 +4,4 @@
 equipped_item = new item();
 
 mod_slots = 0;
+level = 0;
