@@ -34,3 +34,15 @@ function tile_get_id(tile_index)
 {
 	return tile_index == 0 ? 0 :  ((tile_index-1) div 3)+1;
 }
+
+function tile_hurt(_x, _y, _damage)
+{
+	if (collision_tile(_x, _y))
+	{
+		var _tile = tile_get_id(global.tiles[_x][_y]);
+		var _hp = tile_get_health(_tile) - _damage;
+		
+		// Put the tile into the active tiles list.
+		array_push(global.tiles_activep[_x][_y], _hp);
+	}
+}

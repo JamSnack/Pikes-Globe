@@ -10,6 +10,10 @@ key_left = noone;
 key_right = noone;
 key_up = noone;
 key_down = noone;
+mouse_left = noone;
+mouse_right = noone;
+
+last_key = noone;
 
 on_ground = false;
 

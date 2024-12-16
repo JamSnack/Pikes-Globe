@@ -13,7 +13,10 @@
     "name":"Ui",
     "path":"folders/Objects/Ui.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"UI",
+    "path":"objects/UI/UI.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

@@ -2,10 +2,12 @@
 // You can write your code in this editor
 
 // Input
-key_left = keyboard_check(ord("A"));
-key_right = keyboard_check(ord("D"));
-key_up = keyboard_check(ord("W"));
-key_down = keyboard_check(ord("S"));
+key_left = keyboard_check(ord("A")) || keyboard_check(vk_left);
+key_right = keyboard_check(ord("D")) || keyboard_check(vk_right);
+key_up = keyboard_check(ord("W")) || keyboard_check(vk_space) || keyboard_check(vk_up);
+key_down = keyboard_check(ord("S")) || keyboard_check(vk_down);
+mouse_left = mouse_check_button(mb_left);
+mouse_right = mouse_check_button(mb_right);
 
 xmove = (key_right - key_left);
 ymove = (key_down - key_up);
@@ -48,9 +50,7 @@ x += xspd;
 y += yspd;
 
 // Break tiles
-//var _m = get_mouse_pos_in_world();
-if (mouse_check_button_pressed(mb_left) && collision_tile(mouse_x, mouse_y))
-	set_tile(mouse_x, mouse_y);
+
 	
 // Sprite
 if (xspd != 0 && on_ground)

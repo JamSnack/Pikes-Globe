@@ -14,18 +14,26 @@ enum ITEMTYPE
 
 enum ITEMID
 {
+	none,
 	copprin_ore,
 	silven_ore,
 	gollan_ore,
 	drip,
 	phynite,
+	w_pistol,
+	p_pickaxe,
+	bp_brownbag,
+	bp_backpack,
 	last,
 }
 
-function item() constructor
+function item(_name, _desc, _type, _index) constructor
 {
-	name = "Copprin Ore";
-	desc = "LOL";
-	type = ITEMTYPE.resource;
-	index = ITEMID.copprin_ore;
+	name = _name;
+	desc = _desc;
+	type = _type;
+	index = _index;
+	
+	pickaxe_damage = 0;
+	weapon_damage = 0;
 }

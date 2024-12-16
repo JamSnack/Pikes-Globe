@@ -46,6 +46,11 @@ function init_game_state()
 		weapon_mods_available: 3,
 		equipment_mods_available: 5,
 		inventory_slots_available: 10,
+		
+		selected_weapon: get_new_item(ITEMID.w_pistol),
+		selected_pickaxe: get_new_item(ITEMID.p_pickaxe),
+		selected_equipment: get_new_item(ITEMID.none),
+		selected_backpack: get_new_item(ITEMID.bp_brownbag)
 	}
 }
 

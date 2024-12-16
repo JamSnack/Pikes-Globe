@@ -1,6 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+// Change x by layout
+if (global.setting_layout == 0)
+	x = -8;
+else if (global.setting_layout == 1)
+	x = -camera_get_view_width(view_camera[0])/2 + 122;
+
 if (instance_exists(follow_this))
 {
 	//x = lerp(x, follow_this.y, 0.1);
