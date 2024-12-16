@@ -192,6 +192,7 @@
     {"id":{"name":"spr_Sproper","path":"sprites/spr_Sproper/spr_Sproper.yy",},},
     {"id":{"name":"spr_tile_light","path":"sprites/spr_tile_light/spr_tile_light.yy",},},
     {"id":{"name":"spr_tile_selection","path":"sprites/spr_tile_selection/spr_tile_selection.yy",},},
+    {"id":{"name":"spr_tiles_break","path":"sprites/spr_tiles_break/spr_tiles_break.yy",},},
     {"id":{"name":"spr_tiles","path":"sprites/spr_tiles/spr_tiles.yy",},},
     {"id":{"name":"spr_tileset","path":"sprites/spr_tileset/spr_tileset.yy",},},
     {"id":{"name":"spr_ui_background_frame","path":"sprites/spr_ui_background_frame/spr_ui_background_frame.yy",},},

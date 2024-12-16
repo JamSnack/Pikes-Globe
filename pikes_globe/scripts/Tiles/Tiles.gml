@@ -3,7 +3,6 @@
 
 enum TILEID
 {
-	air,
 	grass,
 	dirt,
 	stone,
@@ -37,12 +36,20 @@ function tile_get_id(tile_index)
 
 function tile_hurt(_x, _y, _damage)
 {
+	print("trying...");
 	if (collision_tile(_x, _y))
 	{
+		_x = _x div TILE_SIZE;
+		_y = _y div TILE_SIZE;
 		var _tile = tile_get_id(global.tiles[_x][_y]);
-		var _hp = tile_get_health(_tile) - _damage;
+		var _hp = global.tiles_active[_x][_y] < tile_get_health(_tile) ? global.tiles_active[_x][_y] - _damage : tile_get_health(_tile) - _damage;
 		
+		// workaround system interval resetting to zero hp and requiring that as defualt state
+		if (_hp == 0)
+			_hp = -1;
+			
 		// Put the tile into the active tiles list.
-		array_push(global.tiles_activep[_x][_y], _hp);
+		global.tiles_active[_x][_y] = _hp;
+		print("added a tile to the list with hp: "+string(_hp));
 	}
 }

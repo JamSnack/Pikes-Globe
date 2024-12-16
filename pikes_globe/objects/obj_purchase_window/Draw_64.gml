@@ -1,5 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (layout != global.setting_layout)
-	visible = false;
-else visible = true;
+
+draw_self();
+draw_text_scribble(x+sprite_width/2, y + 8, "[fa_center]"+FH+text);

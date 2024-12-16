@@ -5,6 +5,7 @@
 #macro TILE_SIZE 16
 #macro MAX_INVENTORY 15
 
+global.player = noone;
 global.tiles = noone;
 global.tiles_light = noone;
 global.tiles_active = noone;
@@ -50,7 +51,12 @@ function init_game_state()
 		selected_weapon: get_new_item(ITEMID.w_pistol),
 		selected_pickaxe: get_new_item(ITEMID.p_pickaxe),
 		selected_equipment: get_new_item(ITEMID.none),
-		selected_backpack: get_new_item(ITEMID.bp_brownbag)
+		selected_backpack: get_new_item(ITEMID.bp_brownbag),
+		
+		equipped_weapon: get_new_item(ITEMID.w_pistol),
+		equipped_pickaxe: get_new_item(ITEMID.p_pickaxe),
+		equipped_equipment: get_new_item(ITEMID.none),
+		equipped_backpack: get_new_item(ITEMID.bp_brownbag),
 	}
 }
 

@@ -50,7 +50,14 @@ x += xspd;
 y += yspd;
 
 // Break tiles
-
+can_mine_tile = point_distance(x div TILE_SIZE, y div TILE_SIZE, mouse_x div TILE_SIZE, mouse_y div TILE_SIZE) <= 3;
+if (can_mine_tile && pickaxe_delay <= 0 && mouse_left && collision_tile(mouse_x, mouse_y))
+{
+	tile_hurt(mouse_x, mouse_y, 1);
+	pickaxe_delay = 60/global.stats.equipped_pickaxe.pickaxe_speed;
+}
+else if (pickaxe_delay > 0)
+	pickaxe_delay -= 1;
 	
 // Sprite
 if (xspd != 0 && on_ground)

@@ -35,5 +35,6 @@ function item(_name, _desc, _type, _index) constructor
 	index = _index;
 	
 	pickaxe_damage = 0;
+	pickaxe_speed = 2;
 	weapon_damage = 0;
 }

@@ -142,6 +142,7 @@
     {"name":"spr_Sproper","order":1,"path":"sprites/spr_Sproper/spr_Sproper.yy",},
     {"name":"spr_tile_light","order":5,"path":"sprites/spr_tile_light/spr_tile_light.yy",},
     {"name":"spr_tile_selection","order":6,"path":"sprites/spr_tile_selection/spr_tile_selection.yy",},
+    {"name":"spr_tiles_break","order":17,"path":"sprites/spr_tiles_break/spr_tiles_break.yy",},
     {"name":"spr_tiles","order":4,"path":"sprites/spr_tiles/spr_tiles.yy",},
     {"name":"spr_tileset","order":2,"path":"sprites/spr_tileset/spr_tileset.yy",},
     {"name":"spr_ui_background_frame","order":15,"path":"sprites/spr_ui_background_frame/spr_ui_background_frame.yy",},

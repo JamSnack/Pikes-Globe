@@ -13,9 +13,13 @@ for (var _y = 10; _y < WORLD_HEIGHT; _y++)
 	for (var _x = 0; _x < WORLD_WIDTH; _x++)
 	{
 		// global.tiles[_x][_y] = ( tile_id ) * ( which frame? 1 - 3);
-		global.tiles[_x][_y] = ( (_y >= 12) + (_y >= 14)*3 + ( _y >= 18)*3   ) + ( choose(0,1,2) );
+		var _tid = ( (_y >= 12) + (_y >= 14)*3 + ( _y >= 18)*3   ) + ( choose(0,1,2) );
+		global.tiles[_x][_y] = _tid;
 		
 		// global.tiles[_x][_y] = (a buncha tiles are pre-lit);
 		global.tiles_light[_x][_y] = (_y >= 14);
+		
+		// set health
+		global.tiles_active[_x][_y] = tile_get_health(tile_get_id(_tid));
 	}
 }

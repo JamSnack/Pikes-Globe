@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+global.player = id;
 
 xspd = 0;
 yspd = 0;
@@ -15,8 +16,14 @@ mouse_right = noone;
 
 last_key = noone;
 
+can_mine_tile = false;
+
 on_ground = false;
 
 mask_index = spr_player_run;
 
 structure_hovering = noone;
+
+
+pickaxe_delay = 0;
+weapon_delay = 0;
