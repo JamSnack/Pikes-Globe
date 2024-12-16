@@ -1,7 +1,18 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-init_object(1);
+xspd = 0;
+yspd = 0;
+xmove = 0;
+ymove = 0;
 
-//stats
-flight_speed = 0.5;
+key_left = noone;
+key_right = noone;
+key_up = noone;
+key_down = noone;
+
+on_ground = false;
+
+mask_index = spr_player_run;
+
+structure_hovering = noone;

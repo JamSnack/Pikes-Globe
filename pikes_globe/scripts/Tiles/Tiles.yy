@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Tiles",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Tiles",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

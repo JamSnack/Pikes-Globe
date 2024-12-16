@@ -1,47 +1,67 @@
-#macro GRAVITY 0.24
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+#macro print show_debug_message
 
-function apply_gravity()
+function approach(a, b, amt)
 {
-	vspd += GRAVITY*weight;
+	if (a < b)
+	    return min(a + amt, b); 
+	else
+	    return max(a - amt, b);	
 }
 
-function move_and_collide()
+function noop() {}
+
+function jlerp(val1, val2, amount, thresh=0.5)
 {
-	//Horizontal collision
-	if (hspd != 0 && collision_rectangle(bbox_left + hspd, bbox_top, bbox_right + hspd, bbox_bottom, OBSTA, false, true) != noone)
-	{
-		var hdir = sign(hspd);
-		
-		while (collision_rectangle(bbox_left + hdir, bbox_top, bbox_right + hdir, bbox_bottom, OBSTA, false, true) == noone)
-		{
-			x += hdir;
-		}
-		
-		hspd = 0;
-	}
-	
-	x += hspd;
-	
-	//Vertical collision
-	if (vspd != 0 && collision_rectangle(bbox_left, bbox_top + vspd, bbox_right, bbox_bottom + vspd, OBSTA, false, true) != noone)
-	{
-		var vdir = sign(vspd);
-		
-		while (collision_rectangle(bbox_left, bbox_top + vdir, bbox_right, bbox_bottom + vdir, OBSTA, false, true) == noone)
-		{
-			y += vdir;
-		}
-		
-		vspd = 0;
-	}
-	
-	y += vspd;
+	if ( abs(val2 - val1) <= thresh )
+		return val2;
+	else return lerp(val1, val2, amount);
 }
 
-function init_object(_weight = 1)
+function get_mouse_pos_in_world()
 {
-	weight = _weight;
+	return [ mouse_x + application_get_position()[0], device_mouse_y_to_gui(0) + camera_get_view_y(view_camera[0])]
+}
+
+function camera_add_screenshake(_screenshake=1)
+{
+	with(obj_camera) { screenshake+=_screenshake; }
+}
+
+function draw_sprite_outlined_ext(sprite_index, image_index, x, y, outline_color, xscale, yscale, angle, image_alpha)
+{
+	//set shader
+	gpu_set_fog(true, outline_color, 0, 1);
+
+	//Outline color
+	draw_sprite_ext(sprite_index, image_index, x+xscale, y+yscale, xscale, yscale, angle, c_white, image_alpha);  
+	draw_sprite_ext(sprite_index, image_index, x-xscale, y-yscale, xscale, yscale, angle, c_white, image_alpha);    
+	draw_sprite_ext(sprite_index, image_index, x       , y+yscale, xscale, yscale, angle, c_white, image_alpha);    
+	draw_sprite_ext(sprite_index, image_index, x+xscale, y       , xscale, yscale, angle, c_white, image_alpha);   
+	draw_sprite_ext(sprite_index, image_index, x       , y-yscale, xscale, yscale, angle, c_white, image_alpha);    
+	draw_sprite_ext(sprite_index, image_index, x-xscale, y       , xscale, yscale, angle, c_white, image_alpha);   
+	draw_sprite_ext(sprite_index, image_index, x-xscale, y+yscale, xscale, yscale, angle, c_white, image_alpha);    
+	draw_sprite_ext(sprite_index, image_index, x+xscale, y-yscale, xscale, yscale, angle, c_white, image_alpha);    
 	
-	vspd = 0;
-	hspd = 0;
+	//reset
+	gpu_set_fog(false, c_white, 0, 0);
+  
+	//Draw sprite on-top of outline color
+	draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, angle, c_white, image_alpha);
+}
+
+/*
+function draw_custom_healthbar(sprite_background, sprite_main, sprite_lerp, x, y, health_total, lerp_total, width, height, border = 2)
+{
+	//- background
+	draw_sprite_stretched(sprite_background, 0, x, y, width, height);
+	
+	//- bleed
+	draw_sprite_stretched(sprite_lerp, 0, x+border, y+border, (width-border*2)*lerp_total, height-border*2);
+	//draw_rectangle_color(x+2, y+2, 455*(blood/max_hp), 14, COLOR_HEALTH_RED, COLOR_HEALTH_RED, COLOR_HEALTH_RED, COLOR_HEALTH_RED, false);
+
+	//- health
+	draw_sprite_stretched(sprite_main, 0, x+border, y+border, (width-border*2)*health_total, height-border*2);
+	//draw_rectangle_color(x+2, y, 455*(hp_animation/max_hp), 14, COLOR_HEALTH_GREEN, COLOR_HEALTH_GREEN, COLOR_HEALTH_GREEN, COLOR_HEALTH_GREEN, false);
 }
