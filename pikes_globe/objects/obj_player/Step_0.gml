@@ -41,6 +41,14 @@ if (can_mine_tile && pickaxe_delay <= 0 && mouse_left && collision_tile(mouse_x,
 else if (pickaxe_delay > 0)
 	pickaxe_delay -= 1;
 	
+// Use weapon
+if (mouse_right && can_attack_delay <= 0)
+{
+	with (instance_create_layer(x, y, "Instances", obj_projectile, { damage: global.stats.equipped_weapon.weapon_damage }))
+		{ motion_add_custom(3, point_direction(x, y, mouse_x, mouse_y)); }
+	can_attack_delay = 60/global.stats.equipped_weapon.weapon_speed;
+} else if (can_attack_delay > 0) can_attack_delay -= 1;
+	
 // Sprite
 if (xspd != 0 && on_ground)
 {
@@ -54,4 +62,22 @@ else sprite_index = spr_player;
 // Structure hovering
 structure_hovering = instance_place(x, y, STRUCTURE);
 	
-//print(mouse_x);
+// Receive contact damage
+if (immunity_frames <= 0)
+{
+	var _e = instance_place(x, y, ENEMY)
+	if (instance_exists(_e))
+	{
+		if (_e.contact_damage > 0)
+		{
+			global.stats.hp -= _e.contact_damage;
+			immunity_frames = 60;
+		}
+	}
+} else if (immunity_frames > 0)
+	immunity_frames -= 1;
+	
+if (immunity_frames > 0)
+{
+	image_alpha = sin(current_time);
+} else image_alpha = 1;

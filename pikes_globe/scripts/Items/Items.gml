@@ -36,7 +36,10 @@ function item(_name, _desc, _type, _index) constructor
 	
 	pickaxe_damage = 0;
 	pickaxe_speed = 2;
-	weapon_damage = 0;
+	weapon_damage = 1;
+	weapon_speed = 4;
+	weapon_clip_size = 7;
+	weapon_reload_rate = 1/30;
 }
 
 function inventory_find_item(item_index)

@@ -48,7 +48,7 @@ function draw_sprite_outlined_ext(sprite_index, image_index, x, y, outline_color
 	gpu_set_fog(false, c_white, 0, 0);
   
 	//Draw sprite on-top of outline color
-	draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, angle, c_white, image_alpha);
+	draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, angle, image_blend, image_alpha);
 }
 
 /*

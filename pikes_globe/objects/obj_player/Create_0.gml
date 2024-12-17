@@ -17,6 +17,7 @@ mouse_right = noone;
 last_key = noone;
 
 can_mine_tile = false;
+can_attack_delay = 0;
 
 on_ground = false;
 
@@ -29,3 +30,5 @@ structure_hovering = noone;
 
 pickaxe_delay = 0;
 weapon_delay = 0;
+
+immunity_frames = 0;

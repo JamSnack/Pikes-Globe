@@ -34,6 +34,7 @@ function init_game_state()
 	global.stats = {
 		max_hp : 3,
 		hp : 3,
+		gems: 0,
 	
 		pickaxe_level : 1,
 		weapon_level : 1,

@@ -47,7 +47,7 @@ function entity_physics()
 	if (check_horizontal_collision())
 	{
 		xspd *= -bounciness;
-		image_rotation_force -= xspd;
+		image_rotation_force = -xspd;
 	}
 
 	if (check_vertical_collision())
@@ -57,14 +57,14 @@ function entity_physics()
 		
 		yspd *= -bounciness;
 		
-		image_rotation_force -= yspd;
+		image_rotation_force -= xspd;
 	}
 	
 	// smalls
-	if (xspd > -0.4 && xspd < 0.4)
+	if (xspd > -0.05 && xspd < 0.05)
 		xspd = 0;
 	
-	if (yspd > -0.5 && yspd < 0.1)
+	if (yspd > -0.05 && yspd < 0.05)
 		yspd = 0;
 	
 	x += xspd;
@@ -75,4 +75,20 @@ function entity_physics()
 		image_angle += image_rotation_force;
 	else 
 		image_rotation_force = 0;
+		
+	image_rotation_force = approach(image_rotation_force, 0, 0.01);
+}
+
+function motion_add_custom(_speed, _direction)
+{
+	direction = _direction;
+	speed = _speed;
+	
+	xspd = hspeed;
+	yspd = vspeed;
+	
+	if (image_rotates_with_speed)
+		image_rotation_force = -xspd;
+	
+	speed = 0;
 }
