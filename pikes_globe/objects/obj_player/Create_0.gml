@@ -22,6 +22,8 @@ on_ground = false;
 
 mask_index = spr_player_run;
 
+depth = 0;
+
 structure_hovering = noone;
 
 

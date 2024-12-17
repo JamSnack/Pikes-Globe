@@ -53,3 +53,47 @@ function tile_hurt(_x, _y, _damage)
 		print("added a tile to the list with hp: "+string(_hp));
 	}
 }
+
+function set_tile(_x, _y, _set = 0)
+{
+	
+	
+	_x = _x div TILE_SIZE;
+	_y = _y div TILE_SIZE;
+	
+	var _ox = _x*TILE_SIZE;
+	var _oy = _y*TILE_SIZE;
+
+	if (_x > WORLD_WIDTH || _x < 0 || _y > WORLD_HEIGHT || _y < 0)
+		return false
+	else 
+	{ 
+		// set the tile
+		global.tiles[_x][_y] = _set;
+		
+		// set the lighting
+		var _s = (_set > 0);
+		var _t = TILE_SIZE;
+		set_tile_light(_ox, _oy, _s);
+		set_tile_light(_ox+_t, _oy, _s);
+		set_tile_light(_ox-_t, _oy, _s);
+		set_tile_light(_ox+_t, _oy+_t, _s);
+		set_tile_light(_ox-_t, _oy-_t, _s);
+		set_tile_light(_ox+_t, _oy-_t, _s);
+		set_tile_light(_ox-_t, _oy+_t, _s);
+		set_tile_light(_ox, _oy-_t, _s);
+		set_tile_light(_ox, _oy+_t, _s);
+		
+		return true; 
+	}
+}
+
+function set_tile_light(_x, _y, _set = 0)
+{
+	_x = _x div TILE_SIZE;
+	_y = _y div TILE_SIZE;
+
+	if (_x > WORLD_WIDTH || _x < 0 || _y > WORLD_HEIGHT || _y < 0)
+		return false
+	else { global.tiles_light[_x][_y] = _set; return true; }
+}

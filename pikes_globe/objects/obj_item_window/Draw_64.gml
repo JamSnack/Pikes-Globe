@@ -22,7 +22,25 @@ if (is_struct(equipped_item))
 		
 	// mod slots
 	for (var i = 0; i < mod_slots; i++)
-		draw_sprite_ext(spr_ui_item_slot, 0, x + 74*i - (74 * (i div 5) * 5), y + 74 + 74*(i div 5), 1, 1, 0, c_white, 1);
+	{
+		var _x = x + 74*i - (74 * (i div 5) * 5);
+		var _y = y + 74 + 74*(i div 5);
+		
+		draw_sprite_ext(spr_ui_item_slot, 0, _x, _y, 1, 1, 0, c_white, 1);
+		
+		// draw items in the slots
+		var _slot_ref = noone
+		switch (item_type)
+		{
+			case ITEMTYPE.weapon: { _slot_ref = global.stats.weapon_mods; } break; 
+			case ITEMTYPE.equipment: {_slot_ref = global.stats.equipment_mods; } break; 
+			case ITEMTYPE.backpack: { _slot_ref = global.inventory; } break; 
+			case ITEMTYPE.pickaxe: { _slot_ref = global.stats.pickaxe_mods; } break; 
+		}
+		
+		if (is_array(_slot_ref) && is_struct(_slot_ref[i]))
+			draw_sprite_ext(spr_items_big, _slot_ref[i].index, _x + 4, _y + 4, 1, 1, 0, c_white, 1);
+	}
 		
 	
 }

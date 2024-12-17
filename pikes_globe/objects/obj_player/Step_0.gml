@@ -28,26 +28,8 @@ if (on_ground && key_up)
 	yspd = -2.05;
 }
 
-// Speed control
-yspd = clamp(yspd, -6, 3);
-xspd = clamp(xspd, -6, 6);
+entity_physics();
 
-
-	
-// Move and Collide
-if (check_horizontal_collision())
-	xspd = 0;
-
-if (check_vertical_collision())
-{
-	if (yspd >= 0)
-		on_ground = true;
-		
-	yspd = 0;
-}
-	
-x += xspd;
-y += yspd;
 
 // Break tiles
 can_mine_tile = point_distance(x div TILE_SIZE, y div TILE_SIZE, mouse_x div TILE_SIZE, mouse_y div TILE_SIZE) <= 3;

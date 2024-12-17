@@ -22,9 +22,11 @@
   "ResourceOrderSettings":[
     {"name":"fnt_small","order":1,"path":"fonts/fnt_small/fnt_small.yy",},
     {"name":"scribble_fallback_font","order":16,"path":"fonts/scribble_fallback_font/scribble_fallback_font.yy",},
+    {"name":"ENTITY","order":7,"path":"objects/ENTITY/ENTITY.yy",},
     {"name":"obj_camera","order":1,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"obj_furnace","order":3,"path":"objects/obj_furnace/obj_furnace.yy",},
     {"name":"obj_gameControl","order":2,"path":"objects/obj_gameControl/obj_gameControl.yy",},
+    {"name":"obj_item","order":6,"path":"objects/obj_item/obj_item.yy",},
     {"name":"obj_purchase_window","order":2,"path":"objects/obj_purchase_window/obj_purchase_window.yy",},
     {"name":"obj_tip_window","order":1,"path":"objects/obj_tip_window/obj_tip_window.yy",},
     {"name":"STRUCTURE","order":4,"path":"objects/STRUCTURE/STRUCTURE.yy",},

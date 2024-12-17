@@ -1,32 +1,32 @@
 /// @description Insert description here
 // You can write your code in this editor
-var success = true;
+
+if (!is_array(cost))
+	exit;
+
+// Find all the components
+var _succ = true;
 for (var c = 0; c < array_length(cost); c++)
 {
-	for (var i = 0; i < global.stats.inventory_slots_available; i++)
+	if !(is_struct(inventory_find_item(cost[c])))
 	{
-		if (global.inventory[i] != cost[c] && i+1 >= inventory_slots_available)
-		{
-			success = false;
-			break;
-		}
+		_succ = false;
 	}
-	
-	if !success break;
 }
-	
-	
-if (success == true)
+
+// Remove all the components
+if (_succ)
 {
 	for (var c = 0; c < array_length(cost); c++)
+		inventory_remove_item(cost[c]);
+		
+	with (structure_watching)
 	{
-		for (var i = 0; i < global.stats.inventory_slots_available; i++)
-		{
-			if (global.inventory[i] == cost[c])
-			{
-				global.inventory[i] = 0;
-				break;
-			}
-		}
+		purchased = true;
+		depth = 12;
 	}
+		
+	visible = false;
+	cost = noone;
+	text = "";
 }

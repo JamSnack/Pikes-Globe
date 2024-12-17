@@ -10,6 +10,7 @@ if (global.setting_layout == layout)
 		// Draw cost of the structure if not purchased, otherwise draw minigame window
 		if (instance_exists(structure_hovering))
 		{
+			other.structure_watching = structure_hovering;
 			if (structure_hovering.purchased == false)
 			{
 				other.cost = structure_hovering.cost;
@@ -23,9 +24,8 @@ if (global.setting_layout == layout)
 				}
 			
 				other.text = _text;
+				other.visible = true;
 			}
-		
-			other.visible = true;
 		}
 	}
 }

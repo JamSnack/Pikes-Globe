@@ -8,14 +8,8 @@ function GameInterval()
 	
 	switch (_clock)
 	{
-		case 1: { system_process_tiles(); } break;
 		default: { _clock = 0 } break;
 	}
 	
-	
-}
-
-function system_process_tiles()
-{
 	
 }

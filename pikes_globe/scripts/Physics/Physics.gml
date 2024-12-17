@@ -33,46 +33,46 @@ function collision_tile(_x, _y)
 		return false;
 }
 
-function set_tile(_x, _y, _set = 0)
-{
-	
-	
-	_x = _x div TILE_SIZE;
-	_y = _y div TILE_SIZE;
-	
-	var _ox = _x*TILE_SIZE;
-	var _oy = _y*TILE_SIZE;
 
-	if (_x > WORLD_WIDTH || _x < 0 || _y > WORLD_HEIGHT || _y < 0)
-		return false
-	else 
-	{ 
-		// set the tile
-		global.tiles[_x][_y] = _set;
-		
-		// set the lighting
-		var _s = (_set > 0);
-		var _t = TILE_SIZE;
-		set_tile_light(_ox, _oy, _s);
-		set_tile_light(_ox+_t, _oy, _s);
-		set_tile_light(_ox-_t, _oy, _s);
-		set_tile_light(_ox+_t, _oy+_t, _s);
-		set_tile_light(_ox-_t, _oy-_t, _s);
-		set_tile_light(_ox+_t, _oy-_t, _s);
-		set_tile_light(_ox-_t, _oy+_t, _s);
-		set_tile_light(_ox, _oy-_t, _s);
-		set_tile_light(_ox, _oy+_t, _s);
-		
-		return true; 
+function entity_physics()
+{
+	// Gravity
+	yspd += weight;
+
+	// Speed control
+	yspd = clamp(yspd, -6, 3);
+	xspd = clamp(xspd, -6, 6);
+	
+	// Move and Collide
+	if (check_horizontal_collision())
+	{
+		xspd *= -bounciness;
+		image_rotation_force -= xspd;
 	}
-}
 
-function set_tile_light(_x, _y, _set = 0)
-{
-	_x = _x div TILE_SIZE;
-	_y = _y div TILE_SIZE;
-
-	if (_x > WORLD_WIDTH || _x < 0 || _y > WORLD_HEIGHT || _y < 0)
-		return false
-	else { global.tiles_light[_x][_y] = _set; return true; }
+	if (check_vertical_collision())
+	{
+		if (yspd >= 0)
+			on_ground = true;
+		
+		yspd *= -bounciness;
+		
+		image_rotation_force -= yspd;
+	}
+	
+	// smalls
+	if (xspd > -0.4 && xspd < 0.4)
+		xspd = 0;
+	
+	if (yspd > -0.5 && yspd < 0.1)
+		yspd = 0;
+	
+	x += xspd;
+	y += yspd;
+	
+	// Neutralize rotation force
+	if (image_rotates_with_speed)
+		image_angle += image_rotation_force;
+	else 
+		image_rotation_force = 0;
 }
