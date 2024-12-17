@@ -209,6 +209,7 @@
     {"id":{"name":"spr_tileset","path":"sprites/spr_tileset/spr_tileset.yy",},},
     {"id":{"name":"spr_ui_background_frame","path":"sprites/spr_ui_background_frame/spr_ui_background_frame.yy",},},
     {"id":{"name":"spr_ui_background","path":"sprites/spr_ui_background/spr_ui_background.yy",},},
+    {"id":{"name":"spr_ui_gem","path":"sprites/spr_ui_gem/spr_ui_gem.yy",},},
     {"id":{"name":"spr_ui_item_header","path":"sprites/spr_ui_item_header/spr_ui_item_header.yy",},},
     {"id":{"name":"spr_ui_item_slot","path":"sprites/spr_ui_item_slot/spr_ui_item_slot.yy",},},
     {"id":{"name":"spr_ui_purchase_window","path":"sprites/spr_ui_purchase_window/spr_ui_purchase_window.yy",},},

@@ -157,6 +157,7 @@
     {"name":"spr_tileset","order":2,"path":"sprites/spr_tileset/spr_tileset.yy",},
     {"name":"spr_ui_background_frame","order":15,"path":"sprites/spr_ui_background_frame/spr_ui_background_frame.yy",},
     {"name":"spr_ui_background","order":14,"path":"sprites/spr_ui_background/spr_ui_background.yy",},
+    {"name":"spr_ui_gem","order":22,"path":"sprites/spr_ui_gem/spr_ui_gem.yy",},
     {"name":"spr_ui_item_header","order":12,"path":"sprites/spr_ui_item_header/spr_ui_item_header.yy",},
     {"name":"spr_ui_item_slot","order":13,"path":"sprites/spr_ui_item_slot/spr_ui_item_slot.yy",},
     {"name":"spr_ui_purchase_window","order":16,"path":"sprites/spr_ui_purchase_window/spr_ui_purchase_window.yy",},
