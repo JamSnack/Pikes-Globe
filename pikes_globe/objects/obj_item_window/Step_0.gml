@@ -8,3 +8,6 @@ switch (item_type)
 	case ITEMTYPE.equipment: { mod_slots = global.stats.equipment_mods_available; level = global.stats.equipment_level; equipped_item = global.stats.equipped_equipment;} break;
 	case ITEMTYPE.backpack:  { mod_slots = global.stats.inventory_slots_available; equipped_item = global.stats.equipped_backpack; } break;
 }
+
+if (item_animation > 0)
+	item_animation = lerp(item_animation, 0, 0.1);

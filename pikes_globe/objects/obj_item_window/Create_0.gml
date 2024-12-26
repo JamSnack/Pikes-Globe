@@ -11,5 +11,6 @@ switch (item_type)
 	case ITEMTYPE.pickaxe: {equipped_item = global.stats.selected_pickaxe; } break; 
 }
 
+item_animation = 1;
 mod_slots = 0;
 level = 0;
